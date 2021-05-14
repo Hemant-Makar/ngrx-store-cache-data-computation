@@ -10,16 +10,16 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './ngrx-store/reducers';
 import { ListenerComponent } from './shared/listener/listener.component';
 import { GeneratorComponent } from './shared/generator/generator.component';
-import * as PlotlyJS from 'plotly.js/dist/plotly.js';
-import { PlotlyModule } from 'angular-plotly.js';
+// import * as PlotlyJS from 'plotly.js/dist/plotly.js';
+// import { PlotlyModule } from 'angular-plotly.js';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.forRoot({ liveData: reducer }),
-    PlotlyModule
+    StoreModule.forRoot({ liveData: reducer })
+    // PlotlyModule
   ],
   declarations: [
     AppComponent,
