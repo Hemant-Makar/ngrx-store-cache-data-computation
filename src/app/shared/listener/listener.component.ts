@@ -22,7 +22,8 @@ export class ListenerComponent implements OnInit {
       {
         x: [],
         y: [],
-        type: 'line'
+        type: 'line',
+        mode: 'lines'
       }
     ],
     layout: {
@@ -36,6 +37,9 @@ export class ListenerComponent implements OnInit {
       yaxis: {
         range: [0, 10]
       }
+    },
+    config: {
+      displayModeBar: false
     }
   };
 
@@ -48,11 +52,16 @@ export class ListenerComponent implements OnInit {
     this.cacheObservable$.subscribe(widgetCache => {
       this.graph.data[0].x = widgetCache.map(cache => cache.time);
       this.graph.data[0].y = widgetCache.map(cache => cache.value);
-      // const maxRange = this.graph.data[0].x.pop();
-      // this.graph.data[0].x.push(maxRange);
-      // const minRange = maxRange - 60000;
-      // this.graph.layout.xaxis.range = [minRange, maxRange];
-      Plotly.react(this.key, this.graph.data, this.graph.layout);
+      const maxRange = this.graph.data[0].x.pop();
+      this.graph.data[0].x.push(maxRange);
+      const minRange = maxRange - 60000;
+      this.graph.layout.xaxis.range = [minRange, maxRange];
+      Plotly.react(
+        this.key,
+        this.graph.data,
+        this.graph.layout,
+        this.graph.config
+      );
       // Plotly.update(this.key);
     });
   }

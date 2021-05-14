@@ -27,7 +27,7 @@ export class GeneratorComponent implements OnInit {
           time: time
         };
         this.storeService.setWidgetData(widget);
-      }, 50);
+      }, 500);
     }
   }
   onStopClicked() {
