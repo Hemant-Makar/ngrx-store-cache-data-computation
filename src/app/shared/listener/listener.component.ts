@@ -48,12 +48,12 @@ export class ListenerComponent implements OnInit {
     this.cacheObservable$.subscribe(widgetCache => {
       this.graph.data[0].x = widgetCache.map(cache => cache.time);
       this.graph.data[0].y = widgetCache.map(cache => cache.value);
-      const maxRange = this.graph.data[0].x.pop();
-      this.graph.data[0].x.push(maxRange);
-      const minRange = maxRange - 60000;
-      console.log(maxRange, minRange);
-      this.graph.layout.xaxis.range = [minRange, maxRange];
+      // const maxRange = this.graph.data[0].x.pop();
+      // this.graph.data[0].x.push(maxRange);
+      // const minRange = maxRange - 60000;
+      // this.graph.layout.xaxis.range = [minRange, maxRange];
       Plotly.react(this.key, this.graph.data, this.graph.layout);
+      // Plotly.update(this.key);
     });
   }
 }
