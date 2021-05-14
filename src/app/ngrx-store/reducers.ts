@@ -37,26 +37,6 @@ const liveDataReducer = createReducer(
   })
 );
 
-// const liveDataReducer = createReducer(
-//   initialState,
-//   on(addWidgetDataSuccess, (state, widgetParam: WidgetParam) => {
-//     const newWidgetData = {
-//       ...state.widgetData,
-//       [widgetParam.id]: widgetParam.data
-//     };
-//     return {
-//       ...state,
-//       widgetData: newWidgetData
-//     };
-//   }),
-//   on(addCountSuccess, (state, data) => {
-//     return {
-//       ...state,
-//       count: data.count
-//     };
-//   })
-// );
-
 export function reducer(state: IState | undefined, action: Action) {
   return liveDataReducer(state, action);
 }
