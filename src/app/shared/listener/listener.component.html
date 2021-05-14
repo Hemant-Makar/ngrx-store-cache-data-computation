@@ -1,0 +1,10 @@
+<h2>Listener</h2>
+<div *ngIf="countObservable$ | async as count">
+  <h3>Count: {{count}}</h3>
+</div>
+<div *ngIf="dataObservable$ | async as widget">
+  <h3>widget data: {{widget.value}}</h3>
+</div>
+<div *ngIf="cacheObservable$ | async as widgetCache">
+  <h3>widget cache length: {{widgetCache.length}}</h3>
+</div>
