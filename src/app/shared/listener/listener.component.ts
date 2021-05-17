@@ -52,9 +52,8 @@ export class ListenerComponent implements OnInit {
     this.cacheObservable$.subscribe(widgetCache => {
       this.graph.data[0].x = widgetCache.map(cache => cache.time);
       this.graph.data[0].y = widgetCache.map(cache => cache.value);
-      const maxRange = this.graph.data[0].x.pop();
-      this.graph.data[0].x.push(maxRange);
-      const minRange = maxRange - 60000;
+      const maxRange = this.graph.data[0].x[this.graph.data[0].x.length - 1];
+      const minRange = maxRange - 120000;
       this.graph.layout.xaxis.range = [minRange, maxRange];
       Plotly.react(
         this.key,
