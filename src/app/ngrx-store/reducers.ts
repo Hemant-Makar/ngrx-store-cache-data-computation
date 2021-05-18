@@ -29,6 +29,7 @@ const liveDataReducer = createReducer(
     paramCache = removeOutdatedData(paramCache);
     console.log('cache length ', paramCache.length);
     const cache = { ...state.cache, [param.key]: paramCache };
+    // state.cache[param.key] = paramCache;
     return {
       ...state,
       count: count,
